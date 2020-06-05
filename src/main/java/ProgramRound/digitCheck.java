@@ -15,12 +15,80 @@ public class digitCheck {
 	private static int[] intarr1;
 	private static int num;
 	private static int mul;
+	private static int w=10;
 
 	public static void main(String[] args) {
-		num=142857;
+		UsingbubbleSort();
+		//UsingArraysMethod();			
+	}
+	/**
+	 * Arrays usage Simplest to compare the answer 
+	 * int to string & String to  char array & using Arrays options for char array
+	 */
+	static void UsingArraysMethod() {
+		int m=143256;
+		int n=123456;
+
+		String ms=String.valueOf(m);
+		String ns=String.valueOf(n);
+
+		char[] ch1=ms.toCharArray();
+		char[] ch2=ns.toCharArray();
+
+		Arrays.sort(ch1);
+		Arrays.sort(ch2);
+
+		String mt=Arrays.toString(ch1);
+		System.out.println("mt-->"+mt);
+		String nt=Arrays.toString(ch2);
+		System.out.println("nt-->"+nt);
+
+		if(mt.contentEquals(nt)) {
+			System.out.println("same");
+		}else {
+			System.out.println("diff");
+		}
+
+	}
+
+	/**
+	 * Arrays usage Simplest to compare the answer 
+	 * int to string & String to  char array & using for options to get every string
+	 */
+	static void UsingForMethod() {
+		int m=143256;
+		int n=123456;
+
+		String ms=String.valueOf(m);
+		String ns=String.valueOf(n);
+
+		char[] ch1=ms.toCharArray();
+		char[] ch2=ns.toCharArray();
+
+		Arrays.sort(ch1);
+		Arrays.sort(ch2);
+
+		String sort1="";
+		String sort2="";
+		for(char i:ch1) {
+			sort1= sort1+i;
+		}
+		for(char j:ch2) {
+			sort2= sort2+j;
+		}
+
+		if(sort1.equals(sort2)) {
+			System.out.println("mirroring");
+		}else {
+			System.out.println("Not mirroring");
+		}
+
+	}
+
+	static void UsingbubbleSort(){
+		num=142257;
 		mul=2;
-		int ans=num*mul;
-		System.out.println(ans);
+		int ans=142576;
 
 		intarr=new int[6];
 		int temp=0;
@@ -31,79 +99,30 @@ public class digitCheck {
 			temp++;
 
 		}
+		
+		for(int i=0; i < intarr.length; i++){  
+			for(int j=1; j < intarr.length-i; j++){  
+				if(intarr[j-1] > intarr[j]){  
+					//swap elements  
+					temp = intarr[j-1];  
+					intarr[j-1] = intarr[j];  
+					intarr[j] = temp;  
+				}  
 
-		intarr1=new int[6];
-		int temp1=0;
-		while(ans>0) {
-			int num2=ans%10;
-			intarr1[temp1]=num2;
-			ans=ans/10;
-			temp1++;
-
+			}  
+		} 
+		
+		String sort="";
+		for(int i: intarr) {
+			sort=sort+i;
 		}
+System.out.println("sort=>"+sort);
 
-		int tem=0;
-		for(int j=0;j<intarr.length;j++) {
-			for(int k=0;k<intarr1.length;k++) {
-				if(intarr[j]==intarr1[k]) {
-					tem++;
-					break;
-				}		
-			}
-		}
-		if(tem==6) {
-			System.out.println(tem);
-			System.out.println("same numbers");
-		} //it may not work when num like 123333, ans like 123456.
-
-
-		//////////////////////
-		//2ND METHOD
-		int n=142857;
-		int a=n*mul;
-		String s1=String.valueOf(n);
-		String s2=String.valueOf(a);
-		System.out.println(a);
-
-		char[] a1=s1.toCharArray();
-		char[] a2=s2.toCharArray();
-
-		Arrays.sort(a1);
-		Arrays.sort(a2);
-
-		//sub method 1
-		
-		String stringofa1 = Arrays.toString(a1);
-		System.out.println("stringofa1"+stringofa1);
-		String stringofa2 = Arrays.toString(a2);
-		System.out.println("stringofa2"+stringofa2);
-		
-		if(stringofa1.contentEquals(stringofa2)) {
-			System.out.println("mirroring");
-		}
-		
-		//---------------------
-		
-		//sub method 2
-		
-		String sort1="";
-		String sort2="";
-
-
-
-		for(char i:a1) {
-			sort1=sort1+i;
-			System.out.println("i"+i);
-		}
-		
-		for(char j:a2) {
-			sort2=sort2+j;
-			System.out.println("j"+j);
-		}
-if(sort1.equals(sort2)) {
-	System.out.println("mirror");
-}
 	}
+
+
+
+
 }
 
 
